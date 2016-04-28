@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.029999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trollsheephead_512" translatesAutoresizingMaskIntoConstraints="NO" id="JNY-YA-DmN">
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trollsheephead_512" translatesAutoresizingMaskIntoConstraints="NO" id="JNY-YA-DmN">
                                 <rect key="frame" x="44" y="44" width="512" height="512"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JNY-YA-DmN" secondAttribute="height" multiplier="1:1" id="cxg-B2-7xg"/>
