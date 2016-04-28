@@ -15,5 +15,8 @@ before_install:
  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
  - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
 
+install:
+- cd Chatalyzer
+
 script:
  - set -o pipefail && xcodebuild clean test -project Chatalyzer.xcodeproj -scheme Chatalyzer -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -f `xcpretty-travis-formatter`
