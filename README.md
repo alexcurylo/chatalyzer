@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/alexcurylo/chatalyzer.svg?branch=develop)](https://travis-ci.org/alexcurylo/chatalyzer)
+[![Build Status](https://travis-ci.org/alexcurylo/chatalyzer.svg?branch=master)](https://travis-ci.org/alexcurylo/chatalyzer)
 [![Issues](https://img.shields.io/github/issues/alexcurylo/chatalyzer.svg?style=flat
            )](https://github.com/alexcurylo/chatalyzer/issues)
 [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat)](https://developer.apple.com/swift)
