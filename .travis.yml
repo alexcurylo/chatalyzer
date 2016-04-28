@@ -1,0 +1,19 @@
+#
+# .travis.yml
+# Chatalyzer
+#
+# Copyright © 2016 Trollwerks Inc. All rights reserved.
+#
+
+language: objective-c
+osx_image: xcode7.3
+xcode_sdk: iphonesimulator9.3
+xcode_project: Chatalyzer.xcodeproj
+xcode_scheme: Chatalyzer
+
+before_install:
+ - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+ - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
+
+script:
+ - set -o pipefail && xcodebuild clean test -project Chatalyzer.xcodeproj -scheme Chatalyzer -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -f `xcpretty-travis-formatter`

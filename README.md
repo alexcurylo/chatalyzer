@@ -1,3 +1,9 @@
+[![Build Status](https://travis-ci.org/alexcurylo/chatalyzer.svg?branch=develop)](https://travis-ci.org/alexcurylo/chatalyzer)
+[![Issues](https://img.shields.io/github/issues/alexcurylo/chatalyzer.svg?style=flat
+           )](https://github.com/alexcurylo/chatalyzer/issues)
+[![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat)](https://developer.apple.com/swift)
+[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://mit-license.org)
+
 [Chatalyzer](https://github.com/alexcurylo/chatalyzer)
 ===========
 
