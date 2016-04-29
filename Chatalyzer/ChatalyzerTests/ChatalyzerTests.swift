@@ -9,28 +9,60 @@
 import XCTest
 @testable import Chatalyzer
 
+func XCTAssertThrows<T>(@autoclosure expression: () throws -> T, _ message: String = "", file: StaticString = #file, line: UInt = #line) {
+    do {
+        try expression()
+        XCTFail("No error to catch! - \(message)", file: file, line: line)
+    } catch {
+    }
+}
+
+func XCTAssertNoThrow<T>(@autoclosure expression: () throws -> T, _ message: String = "", file: StaticString = #file, line: UInt = #line) {
+    do {
+        try expression()
+    } catch let error {
+        XCTFail("Caught error: \(error) - \(message)", file: file, line: line)
+    }
+}
+
 class ChatalyzerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func testJsonStringThrowsNotValidObject() {
+        let invalid = ["view" as NSString: UIView() as AnyObject]
+        XCTAssertThrows(try invalid.jsonString())
+    }
+
+    func testJsonStringDoesNotThrowValidObject() {
+        let valid = ["key" as NSString: "Value" as AnyObject]
+        XCTAssertNoThrow(try valid.jsonString())
+    }
+
+    func testChatalysisHandlesEmptyString() {
+        let emptyString = ""
+        let chatalysis = emptyString.chatalysis()
+        XCTAssert(chatalysis == "{\n\n}", "Unexpected chatalysis \(chatalysis)")
+    }
+
+    func testChatalysisHandlesNonEmptyString() {
+        let nonEmptyString = "a string"
+        let chatalysis = nonEmptyString.chatalysis()
+        XCTAssert(chatalysis == "{\n\n}", "Unexpected chatalysis \(chatalysis)")
     }
     
     func testPerformanceExample() {
-        // This is an example of a performance test case.
+        let measureString = "testPerformanceExample"
         self.measureBlock {
-            // Put the code you want to measure the time of here.
+            for _ in 0...10000 {
+                measureString.chatalysis()
+            }
         }
     }
-    
 }

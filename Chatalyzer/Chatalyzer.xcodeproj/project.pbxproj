@@ -12,9 +12,9 @@
 		FACB8BBA1CD2BB260080B1C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACB8BB11CD2BB260080B1C1 /* Assets.xcassets */; };
 		FACB8BBB1CD2BB260080B1C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACB8BB21CD2BB260080B1C1 /* LaunchScreen.storyboard */; };
 		FACB8BBC1CD2BB260080B1C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACB8BB41CD2BB260080B1C1 /* Main.storyboard */; };
-		FACB8BBD1CD2BB260080B1C1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FACB8BB61CD2BB260080B1C1 /* Info.plist */; };
 		FACB8BBE1CD2BB260080B1C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB8BB81CD2BB260080B1C1 /* AppDelegate.swift */; };
 		FACB8BBF1CD2BB260080B1C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB8BB91CD2BB260080B1C1 /* ViewController.swift */; };
+		FACB8BCA1CD2DDA60080B1C1 /* String+Chatalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB8BC91CD2DDA60080B1C1 /* String+Chatalysis.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +52,7 @@
 		FACB8BC21CD2BB7C0080B1C1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		FACB8BC51CD2BDB00080B1C1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../../.gitignore; sourceTree = "<group>"; };
 		FACB8BC61CD2BDB00080B1C1 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../../.travis.yml; sourceTree = "<group>"; };
+		FACB8BC91CD2DDA60080B1C1 /* String+Chatalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Chatalysis.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +144,7 @@
 			children = (
 				FACB8BB81CD2BB260080B1C1 /* AppDelegate.swift */,
 				FACB8BB91CD2BB260080B1C1 /* ViewController.swift */,
+				FACB8BC91CD2DDA60080B1C1 /* String+Chatalysis.swift */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -266,7 +268,6 @@
 				FACB8BBA1CD2BB260080B1C1 /* Assets.xcassets in Resources */,
 				FACB8BBC1CD2BB260080B1C1 /* Main.storyboard in Resources */,
 				FACB8BBB1CD2BB260080B1C1 /* LaunchScreen.storyboard in Resources */,
-				FACB8BBD1CD2BB260080B1C1 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +294,7 @@
 			files = (
 				FACB8BBE1CD2BB260080B1C1 /* AppDelegate.swift in Sources */,
 				FACB8BBF1CD2BB260080B1C1 /* ViewController.swift in Sources */,
+				FACB8BCA1CD2DDA60080B1C1 /* String+Chatalysis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +367,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -411,6 +414,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
