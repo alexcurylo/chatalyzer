@@ -24,20 +24,71 @@
                                     <constraint firstAttribute="width" secondItem="JNY-YA-DmN" secondAttribute="height" multiplier="1:1" id="cxg-B2-7xg"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mKQ-L5-cGA">
+                                <rect key="frame" x="20" y="26" width="560" height="568"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhq-Ux-3ea">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" CHATALYZER" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyW-L2-JjR" userLabel="CHATALYZER">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="21"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="  Content Analysis" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OV-4f-DzS">
+                                                <rect key="frame" x="280" y="0.0" width="280" height="21"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="13"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xCj-ZQ-9wt">
+                                        <rect key="frame" x="0.0" y="21" width="560" height="194"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <string key="text">As you type a chat string, Chatalyzer will interactively display here the @mentions, emoticons, and link contents it found in its chatalysis.
+
+Tap 'Tap to begin' at the bottom of the screen to begin!</string>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to begin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oYU-fN-tak">
+                                        <rect key="frame" x="0.0" y="215" width="560" height="353"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.20425112612612611" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="DSy-Pa-HtE"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mKQ-L5-cGA" secondAttribute="bottom" constant="6" id="2YM-am-kiU"/>
+                            <constraint firstItem="mKQ-L5-cGA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="6" id="9Wl-wx-fbg"/>
                             <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="JNY-YA-DmN" secondAttribute="bottom" constant="24" id="Gjy-IO-1gh"/>
                             <constraint firstItem="JNY-YA-DmN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gvn-6r-ELP"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="JNY-YA-DmN" secondAttribute="trailing" constant="24" id="Z6e-Wu-Pv3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mKQ-L5-cGA" secondAttribute="trailing" id="dnD-TP-9tv"/>
                             <constraint firstItem="JNY-YA-DmN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ojY-og-XVY"/>
                             <constraint firstItem="JNY-YA-DmN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="24" id="qrj-yk-kjV"/>
+                            <constraint firstItem="mKQ-L5-cGA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tc2-so-Y6P"/>
                             <constraint firstItem="JNY-YA-DmN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="zFj-6A-kNW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chatView" destination="oYU-fN-tak" id="I3u-ag-GCt"/>
+                        <outlet property="resultView" destination="xCj-ZQ-9wt" id="gKD-RF-b39"/>
+                        <outlet property="stackBottom" destination="2YM-am-kiU" id="qLX-ea-F7d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="481" y="512"/>
         </scene>
     </scenes>
     <resources>

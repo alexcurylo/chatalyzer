@@ -34,7 +34,7 @@ extension Dictionary where Key: NSObject, Value: AnyObject {
             throw JSONError.NotValidObject
         }
         
-        guard let data = try? NSJSONSerialization.dataWithJSONObject(self, options:options) else {
+        guard let data = try? NSJSONSerialization.dataWithJSONObject(self, options: options) else {
             throw JSONError.SerializationFailed
         }
         
@@ -61,7 +61,7 @@ extension String {
             return try contents.jsonString([.PrettyPrinted])
         } catch let error {
             print(error)
-            return "{}"
+            return "{\n\n}"
         }
     }
 }
