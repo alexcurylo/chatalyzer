@@ -53,9 +53,10 @@ extension String {
     ///  - note: In accordance with instructions "This exercise is not meant to be tricky or complex;" it is assumed that semantically distinct matches are sufficient and there is no need to guard against overlapping or nested pattern matches.
     ///
     ///  - parameter unique: Whether to remove duplicates. Assumed true.
+    ///  - parameter pretty: Whether to pretty print result. Assumed true.
     ///
     ///  - returns: String which is a JSON dictionary. Will be empty if string has no identifiable content items.
-    public func chatalysis(unique: Bool = true) -> String {
+    public func chatalysis(unique unique: Bool = true, pretty: Bool = true) -> String {
         var contents = [NSString: AnyObject]()
         
         contents["mentions"] = mentions(unique: unique)
@@ -63,7 +64,7 @@ extension String {
         contents["links"] = links(unique: unique)
         
         do {
-            return try contents.jsonString([.PrettyPrinted])
+            return try contents.jsonString(pretty ? [.PrettyPrinted] : [])
         } catch let error {
             print(error)
             return "{\n\n}"

@@ -66,12 +66,12 @@ class ChatalyzerTests: XCTestCase {
     }
    
     func testChatalysisFindsUniqueLink() {
-        let uniqueTestResult = "{\n  \"links\" : [\n    {\n      \"title\" : \"WIP\",\n      \"url\" : \"http:\\/\\/test.com\"\n    }\n  ]\n}"
+        let uniqueTestResult = "{\"links\":[{\"title\":\"WIP\",\"url\":\"http:\\/\\/test.com\"}]}"
         
-        let test1 = "test.com".chatalysis()
+        let test1 = "test.com".chatalysis(pretty: false)
         XCTAssert(test1 == uniqueTestResult, "Unexpected chatalysis \(test1)")
         
-        let test3 = "test.com test.com test.com".chatalysis()
+        let test3 = "test.com test.com test.com".chatalysis(pretty: false)
         XCTAssert(test3 == uniqueTestResult, "Unexpected chatalysis \(test3)")
     }
 
