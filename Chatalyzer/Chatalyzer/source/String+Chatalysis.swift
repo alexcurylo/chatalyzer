@@ -107,8 +107,26 @@ extension String {
     ///
     ///  - returns: Optional array of (emoticon) names
     public func emoticons(unique unique: Bool = true) -> [String]? {
-        // TODO: Find @mentions
-        return nil
+        var allEmoticons = [String]()
+        
+        let scanner = NSScanner(string: self)
+        scanner.scanUpToString("(", intoString: nil)
+        while !scanner.atEnd {
+            scanner.scanLocation = scanner.scanLocation + 1
+            var emoticon: NSString?
+            if scanner.scanCharactersFromSet(NSMutableCharacterSet.alphanumericCharacterSet(), intoString: &emoticon),
+                let asString = emoticon as? String where asString.utf16.count < 15 && scanner.scanString(")", intoString: nil)
+                {
+                allEmoticons.append(asString)
+            }
+            scanner.scanUpToString("(", intoString: nil)
+        }
+        guard allEmoticons.count > 0 else {
+            return nil
+        }
+        
+        let emoticons = unique ? Array(Set(allEmoticons)) : allEmoticons
+        return emoticons
     }
     
     ///  Finds all links in the string and retrieves their titles.

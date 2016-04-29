@@ -93,6 +93,34 @@ class ChatalyzerTests: XCTestCase {
         }
     }
     
+    func testEmoticonsFindsAllEmoticons() {
+        let emoticons1 = "(em1)".emoticons()
+        XCTAssertNotNil(emoticons1, "Failed to find em1")
+        XCTAssert( emoticons1! == ["em1"], "Unexpected emoticons \(emoticons1!)")
+        
+        let emoticons2 = "@}((em2);".emoticons()
+        XCTAssertNotNil(emoticons2, "Failed to find em2")
+        XCTAssert( emoticons2! == ["em2"], "Unexpected emoticons \(emoticons2!)")
+        
+        let emoticons3 = "( (em3) )".emoticons()
+        XCTAssertNotNil(emoticons3, "Failed to find em3")
+        XCTAssert( emoticons3! == ["em3"], "Unexpected emoticons \(emoticons3!)")
+    }
+    
+    func testEmoticonsFindsUniqueEmoticons() {
+        if let emoticons = "(em1) (em1) (2em2)".emoticons(unique: true) {
+            XCTAssert(emoticons.count == 2, "Unexpected emoticons \(emoticons)")
+        } else {
+            XCTFail("Failed to find any emoticons!")
+        }
+    }
+
+    func testEmoticonsRejectsNonEmoticons() {
+        if let emoticons = "This () (brack(a!) (a.b) )( (manymorethan15charactersinthis)".emoticons() {
+            XCTFail("Unexpected emoticons \(emoticons)")
+        }
+    }
+   
     func testLinksFindsAllLinks() {
         if let links = "test.com test.com test.com".links(unique: false) {
             XCTAssert(links.count == 3, "Unexpected links \(links)")
