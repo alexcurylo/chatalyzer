@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FAA990911CD4056C00D44756 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990901CD4056C00D44756 /* String+HTML.swift */; };
 		FACB8B971CD2B0F10080B1C1 /* ChatalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB8B961CD2B0F10080B1C1 /* ChatalyzerTests.swift */; };
 		FACB8BA21CD2B0F10080B1C1 /* ChatalyzerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB8BA11CD2B0F10080B1C1 /* ChatalyzerUITests.swift */; };
 		FACB8BBA1CD2BB260080B1C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACB8BB11CD2BB260080B1C1 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FAA990901CD4056C00D44756 /* String+HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		FACB8B7E1CD2B0F00080B1C1 /* Chatalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACB8B921CD2B0F10080B1C1 /* ChatalyzerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatalyzerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACB8B961CD2B0F10080B1C1 /* ChatalyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatalyzerTests.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				FACB8BB81CD2BB260080B1C1 /* AppDelegate.swift */,
 				FACB8BB91CD2BB260080B1C1 /* ViewController.swift */,
 				FACB8BC91CD2DDA60080B1C1 /* String+Chatalysis.swift */,
+				FAA990901CD4056C00D44756 /* String+HTML.swift */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				FACB8BBE1CD2BB260080B1C1 /* AppDelegate.swift in Sources */,
 				FACB8BBF1CD2BB260080B1C1 /* ViewController.swift in Sources */,
 				FACB8BCA1CD2DDA60080B1C1 /* String+Chatalysis.swift in Sources */,
+				FAA990911CD4056C00D44756 /* String+HTML.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

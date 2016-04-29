@@ -163,7 +163,7 @@ extension NSURL {
     ///  - returns: title of the webpage or "" if not found
     public func title() -> String {
         let pattern = "(?<=\\<title\\>).*?(?=\\<\\/title\\>)"
-        guard let page = try? NSString(contentsOfURL: self, encoding: NSUTF8StringEncoding),
+        guard let page = try? NSString(contentsOfURL: self, encoding: NSASCIIStringEncoding),
             let regex = try? NSRegularExpression(pattern: pattern, options: [.CaseInsensitive]),
             let match = regex.firstMatchInString(page as String, options: .ReportCompletion, range: NSMakeRange(0, page.length)) else {
             return ""

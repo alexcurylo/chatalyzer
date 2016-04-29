@@ -30,7 +30,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Text input handling
     
     func onChatChange(sender: AnyObject?) {
-        resultView.text = chatView.text?.chatalysis()
+        if let legalJSON = chatView.text?.chatalysis() {
+            // Make it more readable for display
+            let legalHTML = legalJSON.stringByReplacingOccurrencesOfString("\\/", withString: "/")
+            resultView.text = legalHTML.stringByDecodingHTMLEntities
+        } else {
+            resultView.text = nil
+        }
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
