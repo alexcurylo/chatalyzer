@@ -101,7 +101,7 @@ extension String {
     }
     
     ///  Finds all unique (emoticons) in the string.
-    ///  Emoticons are at most 15 parentherized alphanumeric characters.
+    ///  Emoticons are at most 15 parenthesized alphanumeric characters.
     ///
     ///  - parameter unique: Whether to remove duplicates. Assumed true.
     ///

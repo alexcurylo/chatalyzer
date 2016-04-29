@@ -20,7 +20,11 @@ Chat message string content analyzer.
 
 ## Purpose
 
-To display in the form of a JSON string the contents found in a typed chat message string.
+To display in the form of a JSON string the contents found in a typed chat message string, of the three types
+
+ - __mentions:__ prefixed with '@' and extend to next non-word character.
+ - __emoticons:__ at most 15 parenthesized alphanumeric characters.
+ - __links:__ as found by [`NSDataDetector`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSDataDetector_Class/) along with their title
 
 ## Requirements
 
@@ -29,8 +33,27 @@ To display in the form of a JSON string the contents found in a typed chat messa
 
 ## Usage
 
-TBD
+Run and type (or paste) in your chat string
+ 
+[usage1](images/usage1.jpeg)
+ 
+and it will be parsed as per these samples:
+ 
+> @chris you around?
 
+[usage2](images/usage2.jpeg)
+ 
+> Good morning! (megusta) (coffee)
+ 
+[usage3](images/usage3.jpeg)
+
+> Olympics are starting soon;http://www.nbcolympics.com
+
+[usage4](images/usage4.jpeg)
+
+> @bob @john (success) such a cool feature; https://twitter.com/jdorfman/status/430511497475670016
+ 
+[usage5](images/usage5.jpeg)
 
 ## Author
 
@@ -44,5 +67,5 @@ The [MIT License](http://opensource.org/licenses/MIT). See the [LICENSE](LICENSE
  
 ## Change Log
  
- * **Version 1.0**: *(????.??.??)* - Initial Release
+ * **Version 1.0**: *(2016.04.29)* - Initial Release
 
