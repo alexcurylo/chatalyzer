@@ -156,9 +156,19 @@ extension NSURL {
     
     ///  Finds title of a webpage
     ///
-    ///  @return title of the webpage or "" if not found
+    ///  - note: In accordance with instructions "This exercise is not meant to be tricky or complex;" it is assumed that caching and throttling of web requests are unnecessary.
+    ///
+    /// Those would be dramatically unsafe assumptions for a production app. The correct way to accomplish this without regard for trickiness or complexity is found at https://github.com/tryolabs/TLMetaResolver for instance.
+    ///
+    ///  - returns: title of the webpage or "" if not found
     public func title() -> String {
-        // TODO: Find actual title
-        return "WIP"
+        let pattern = "(?<=\\<title\\>).*?(?=\\<\\/title\\>)"
+        guard let page = try? NSString(contentsOfURL: self, encoding: NSUTF8StringEncoding),
+            let regex = try? NSRegularExpression(pattern: pattern, options: [.CaseInsensitive]),
+            let match = regex.firstMatchInString(page as String, options: .ReportCompletion, range: NSMakeRange(0, page.length)) else {
+            return ""
+        }
+        
+        return page.substringWithRange(match.range)
     }
 }

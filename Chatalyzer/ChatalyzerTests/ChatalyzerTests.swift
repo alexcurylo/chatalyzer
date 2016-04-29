@@ -138,7 +138,8 @@ class ChatalyzerTests: XCTestCase {
     }
 
     func testPerformanceExample() {
-        let measureString = "test.com test.edu test.ca"
+        // Let's just lampshade the performance of naive title lookup.
+        let measureString = "@mention (emoticon)"
         self.measureBlock {
             for _ in 0...1000 {
                 measureString.chatalysis()
