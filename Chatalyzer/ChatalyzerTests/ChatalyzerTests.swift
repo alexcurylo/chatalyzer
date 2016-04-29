@@ -57,6 +57,42 @@ class ChatalyzerTests: XCTestCase {
         XCTAssert(chatalysis == "{\n\n}", "Unexpected chatalysis \(chatalysis)")
     }
     
+    func testMentionsFindsAllMentions() {
+        if let mentions = "@mention1 @mention1 @mention1".mentions(unique: false) {
+            XCTAssert(mentions.count == 3, "Unexpected mentions \(mentions)")
+        } else {
+            XCTFail("Failed to find any mentions!")
+        }
+    }
+
+    func testMentionsStripsUnmentionables() {
+        let mentions1 = "@mention1".mentions()
+        XCTAssertNotNil(mentions1, "Failed to find mention1")
+        XCTAssert( mentions1! == ["mention1"], "Unexpected mentions \(mentions1!)")
+
+        let mentions2 = "@mention2;".mentions()
+        XCTAssertNotNil(mentions2, "Failed to find mention2")
+        XCTAssert( mentions2! == ["mention2"], "Unexpected mentions \(mentions2!)")
+
+        let mentions3 = "@mention3 @mention3.4.5".mentions()
+        XCTAssertNotNil(mentions3, "Failed to find mention3")
+        XCTAssert( mentions3! == ["mention3"], "Unexpected mentions \(mentions3!)")
+    }
+
+    func testMentionsFindsUniqueMentions() {
+        if let mentions = "@mention1 @mention1 @mention2".mentions(unique: true) {
+            XCTAssert(mentions.count == 2, "Unexpected mentions \(mentions)")
+        } else {
+            XCTFail("Failed to find any mentions!")
+        }
+    }
+    
+    func testMentionsRejectsNonMentions() {
+        if let mentions = "@ ;@ user@mail.com".mentions() {
+            XCTFail("Unexpected mentions \(mentions)")
+        }
+    }
+    
     func testLinksFindsAllLinks() {
         if let links = "test.com test.com test.com".links(unique: false) {
             XCTAssert(links.count == 3, "Unexpected links \(links)")

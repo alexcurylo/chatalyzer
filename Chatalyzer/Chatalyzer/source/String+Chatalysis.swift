@@ -74,12 +74,30 @@ extension String {
     ///  Finds all unique @mentions in the string.
     ///  @mentions are prefixed with @ and extend to next non-word character.
     ///
+    ///  - note: In accordance with instructions "This exercise is not meant to be tricky or complex;" it is assumed that all @mentions will begin with space/newline, otherwise disambiguating from email addresses and the like would be complex.
     ///  - parameter unique: Whether to remove duplicates. Assumed true.
     ///
     ///  - returns: Optional array of names @mentioned
     public func mentions(unique unique: Bool = true) -> [String]? {
-        // TODO: Find @mentions
-        return nil
+        let separators = NSMutableCharacterSet.whitespaceAndNewlineCharacterSet()
+        let unmentionables = NSMutableCharacterSet.alphanumericCharacterSet()
+        unmentionables.invert()
+        
+        let words = componentsSeparatedByCharactersInSet(separators)
+        
+        let allMentions = words.filter {
+                $0.hasPrefix("@")
+            }.map {
+                $0.stringByTrimmingCharactersInSet(unmentionables).componentsSeparatedByCharactersInSet(unmentionables).first ?? ""
+            }.filter {
+                $0.utf16.count > 0
+            }
+        guard allMentions.count > 0 else {
+            return nil
+        }
+
+        let mentions = unique ? Array(Set(allMentions)) : allMentions
+        return mentions
     }
     
     ///  Finds all unique (emoticons) in the string.
@@ -104,11 +122,11 @@ extension String {
         }
         
         let allUrls = detector.matchesInString(self, options: .ReportCompletion, range: NSMakeRange(0, (self as NSString).length)).flatMap { $0.URL }
-        let urls = unique ? Array(Set(allUrls)) : allUrls
-        guard urls.count > 0 else {
+        guard allUrls.count > 0 else {
             return nil
         }
         
+        let urls = unique ? Array(Set(allUrls)) : allUrls
         let links = urls.map {
             ["url": $0.absoluteString, "title": $0.title()]
         }
