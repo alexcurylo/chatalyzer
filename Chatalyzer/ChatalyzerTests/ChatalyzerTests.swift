@@ -57,10 +57,28 @@ class ChatalyzerTests: XCTestCase {
         XCTAssert(chatalysis == "{\n\n}", "Unexpected chatalysis \(chatalysis)")
     }
     
+    func testLinksFindsAllLinks() {
+        if let links = "test.com test.com test.com".links(unique: false) {
+            XCTAssert(links.count == 3, "Unexpected links \(links)")
+        } else {
+            XCTFail("Failed to find any links!")
+        }
+    }
+   
+    func testChatalysisFindsUniqueLink() {
+        let uniqueTestResult = "{\n  \"links\" : [\n    {\n      \"title\" : \"WIP\",\n      \"url\" : \"http:\\/\\/test.com\"\n    }\n  ]\n}"
+        
+        let test1 = "test.com".chatalysis()
+        XCTAssert(test1 == uniqueTestResult, "Unexpected chatalysis \(test1)")
+        
+        let test3 = "test.com test.com test.com".chatalysis()
+        XCTAssert(test3 == uniqueTestResult, "Unexpected chatalysis \(test3)")
+    }
+
     func testPerformanceExample() {
-        let measureString = "testPerformanceExample"
+        let measureString = "test.com test.edu test.ca"
         self.measureBlock {
-            for _ in 0...10000 {
+            for _ in 0...1000 {
                 measureString.chatalysis()
             }
         }

@@ -47,15 +47,20 @@ extension Dictionary where Key: NSObject, Value: AnyObject {
 }
 
 extension String {
-
-    ///  Parses string looking for items of interest
+    
+    ///  Parses string looking for items of interest: @mentions, (emoticons) and <links>
+    ///
+    ///  - note: In accordance with instructions "This exercise is not meant to be tricky or complex;" it is assumed that semantically distinct matches are sufficient and there is no need to guard against overlapping or nested pattern matches.
+    ///
+    ///  - parameter unique: Whether to remove duplicates. Assumed true.
     ///
     ///  - returns: String which is a JSON dictionary. Will be empty if string has no identifiable content items.
-    public func chatalysis() -> String {
+    public func chatalysis(unique: Bool = true) -> String {
         var contents = [NSString: AnyObject]()
         
-        // TODO: Populate content
-        contents.removeAll()
+        contents["mentions"] = mentions(unique: unique)
+        contents["emoticons"] = emoticons(unique: unique)
+        contents["links"] = links(unique: unique)
         
         do {
             return try contents.jsonString([.PrettyPrinted])
@@ -63,5 +68,60 @@ extension String {
             print(error)
             return "{\n\n}"
         }
+    }
+    
+    ///  Finds all unique @mentions in the string.
+    ///  @mentions are prefixed with @ and extend to next non-word character.
+    ///
+    ///  - parameter unique: Whether to remove duplicates. Assumed true.
+    ///
+    ///  - returns: Optional array of names @mentioned
+    public func mentions(unique unique: Bool = true) -> [String]? {
+        // TODO: Find @mentions
+        return nil
+    }
+    
+    ///  Finds all unique (emoticons) in the string.
+    ///  Emoticons are at most 15 parentherized alphanumeric characters.
+    ///
+    ///  - parameter unique: Whether to remove duplicates. Assumed true.
+    ///
+    ///  - returns: Optional array of (emoticon) names
+    public func emoticons(unique unique: Bool = true) -> [String]? {
+        // TODO: Find @mentions
+        return nil
+    }
+    
+    ///  Finds all links in the string and retrieves their titles.
+    ///
+    ///  - parameter unique: Whether to remove duplicates. Assumed true.
+    ///
+    ///  - returns: Optional array of ["url": <url>, "title": <title>]
+    public func links(unique unique: Bool = true) -> [[String: String]]? {
+        guard let detector = try? NSDataDetector(types: NSTextCheckingType.Link.rawValue) else {
+            return nil
+        }
+        
+        let allUrls = detector.matchesInString(self, options: .ReportCompletion, range: NSMakeRange(0, (self as NSString).length)).flatMap { $0.URL }
+        let urls = unique ? Array(Set(allUrls)) : allUrls
+        guard urls.count > 0 else {
+            return nil
+        }
+        
+        let links = urls.map {
+            ["url": $0.absoluteString, "title": $0.title()]
+        }
+        return links
+     }
+}
+
+extension NSURL {
+    
+    ///  Finds title of a webpage
+    ///
+    ///  @return title of the webpage or "" if not found
+    public func title() -> String {
+        // TODO: Find actual title
+        return "WIP"
     }
 }
