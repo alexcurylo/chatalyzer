@@ -35,25 +35,25 @@ To display in the form of a JSON string the contents found in a typed chat messa
 
 Run and type (or paste) in your chat string
  
-[usage1](images/usage1.jpeg)
+![usage1](images/usage1.jpeg)
  
 and it will be parsed as per these samples:
  
 > @chris you around?
 
-[usage2](images/usage2.jpeg)
+![usage2](images/usage2.jpeg)
  
 > Good morning! (megusta) (coffee)
  
-[usage3](images/usage3.jpeg)
+![usage3](images/usage3.jpeg)
 
 > Olympics are starting soon;http://www.nbcolympics.com
 
-[usage4](images/usage4.jpeg)
+![usage4](images/usage4.jpeg)
 
 > @bob @john (success) such a cool feature; https://twitter.com/jdorfman/status/430511497475670016
  
-[usage5](images/usage5.jpeg)
+![usage5](images/usage5.jpeg)
 
 ## Author
 
